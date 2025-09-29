@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* 🔑 Añade esto al final del archivo */
+@keyframes scrollX {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  } /* desplaza el ancho de la primera copia */
+}
+
+.animate-scrollX {
+  animation: scrollX linear infinite;
+}
