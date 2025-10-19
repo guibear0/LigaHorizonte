@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 import { buildLogoUrl } from "../lib/supabaseHelpers";
 
-export default function LogosCarrusel({ speed = 30, height = "h-20" }) {
+export default function LogosCarrusel({ speed = 30 }) {
   const [logos, setLogos] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function LogosCarrusel({ speed = 30, height = "h-20" }) {
   }, []);
 
   return (
-    <div className="overflow-hidden bg-white py-6">
+    <div className="overflow-hidden bg-white">
       <div
         className="flex w-max animate-scrollX"
         style={{ animationDuration: `${speed}s` }}
@@ -33,7 +33,8 @@ export default function LogosCarrusel({ speed = 30, height = "h-20" }) {
             key={i}
             src={team.logoUrl}
             alt={team.name}
-            className={`${height} w-auto mx-8 flex-shrink-0`}
+            className="mx-8 flex-shrink-0 w-16 object-contain"
+            style={{ maxHeight: "50px", aspectRatio: "1 / 1" }} // Max height 50px, maintains square proportion
           />
         ))}
       </div>
